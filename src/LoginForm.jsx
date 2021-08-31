@@ -177,12 +177,24 @@ const Overlay = () => {
         const container = document.getElementById('container');
 
         container.classList.add('right-panel-active');
+
+        const darkLogo = document.getElementsByClassName('darkLogo')[0];
+        const whiteLogo = document.getElementsByClassName('whiteLogo')[0];
+
+        darkLogo.style.display = 'none';
+        whiteLogo.style.display = 'block';
     };
 
     const handleLeftOnClick = () => {
         const container = document.getElementById('container');
 
         container.classList.remove('right-panel-active');
+
+        const darkLogo = document.getElementsByClassName('darkLogo')[0];
+        const whiteLogo = document.getElementsByClassName('whiteLogo')[0];
+
+        darkLogo.style.display = 'block';
+        whiteLogo.style.display = 'none';        
     };
 
     return (

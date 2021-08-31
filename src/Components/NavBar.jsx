@@ -2,19 +2,32 @@ import { Box, IconButton, Image, Spacer, Stack, Tooltip, useColorMode, useColorM
 import { FaMoon, FaSun } from "react-icons/fa";
 
 import logoImage from '../Assets/diprella_logo.svg';
-// import logoImage from '../Assets/white_logo.svg';
+import whiteLogo from '../Assets/white_logo.svg';
 
-const Logo = () => (
-    <Box>
-        <Image 
-            alt="logo"
-            src={logoImage}
-            htmlHeight="45px"
-            htmlWidth="140px"
-            style={{ padding: 10 }}
-        />
-    </Box>
-);
+const Logo = () => {
+    const logo = useColorModeValue(logoImage, whiteLogo);
+
+    return (
+        <Box>
+            <Image 
+                className="darkLogo"
+                alt="logo"
+                src={logo}
+                htmlHeight="45px"
+                htmlWidth="140px"
+                style={{ padding: 10 }}
+            />
+            <Image 
+                className="whiteLogo"
+                alt="logo"
+                src={whiteLogo}
+                htmlHeight="45px"
+                htmlWidth="140px"
+                style={{ padding: 10, display: 'none' }}
+            />
+        </Box>
+    )
+};
 
 const ColorModeButton = ({ mr }) => {
     const { toggleColorMode } = useColorMode();
