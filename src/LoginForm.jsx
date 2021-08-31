@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { Button, Heading, Text, Stack, useColorModeValue } from "@chakra-ui/react";
+import { Button, Heading, Text, Stack, useColorModeValue, useToast } from "@chakra-ui/react";
 import Login from "./Components/Form";
 import LinkIconBar from "./Components/LinkIconBar";
 
@@ -8,6 +8,8 @@ import links from "./Data/footerLinks";
 import { colors } from './Theme';
 
 const SignUp = ({ bg }) => {
+    const toast = useToast();
+
     return (
         <Stack
             className="form-container sign-up-container"
@@ -64,15 +66,21 @@ const SignUp = ({ bg }) => {
                             .min(8, 'Password must be at least 8 characters')
                             .required('Password is required')
                     })}
-                    onSubmit={fields => {
-                        alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
+                    onSubmit={() => {
+                        toast({
+                            title: 'Sign Up Successfull',
+                            description: "We've created your account for you.",
+                            position: 'top',
+                            duration: '5000',
+                            status: 'success',
+                            isClosable: true,
+                        })
                     }}
                 >
                     {({ errors, status, touched }) => (
                         <Form
                             style={{ alignItems: "center" }}
                         >
-                            <Stack></Stack>
                             <Stack as='fieldset'>
                                 <Stack as='fieldset'>
                                     <Field type="text" name="name" placeholder="Name" className={'form-control' + (errors.name && touched.name ? ' is-invalid' : '')} />

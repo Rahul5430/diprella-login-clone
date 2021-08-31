@@ -1,8 +1,10 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { Button, Stack } from '@chakra-ui/react';
+import { Button, Stack, useToast } from '@chakra-ui/react';
 import * as Yup from 'yup';
 
 const Login = () => {
+    const toast = useToast();
+
     return (
         <Formik
             initialValues={{ 
@@ -17,8 +19,15 @@ const Login = () => {
                     .min(8, 'Password must be at least 8 characters')
                     .required('Password is required')
             })}
-            onSubmit={fields => {
-                alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
+            onSubmit={() => {
+                toast({
+                    title: 'Sign In Successfull',
+                    description: 'Welcome Back!!!',
+                    position: 'top',
+                    duration: '5000',
+                    status: 'success',
+                    isClosable: true,
+                })
             }}
         >
             {({ errors, status, touched }) => (
