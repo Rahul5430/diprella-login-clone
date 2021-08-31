@@ -43,7 +43,7 @@ const LinkIcon = ({ index, color, onHoverColor, url, label, icon }) => (
 );
 
 const LinkIconBar = ({ links, color, onHoverColor, ...props }) => {
-    const iconColor = color || useColorModeValue(colors.subtle.light, colors.subtle.dark);
+    const iconColor = color || useColorModeValue('#47546D', colors.secondary.light);
     const hoverColor = onHoverColor || useColorModeValue(colors.secondary.light, colors.secondary.dark);
 
     return (
@@ -58,7 +58,7 @@ const LinkIconBar = ({ links, color, onHoverColor, ...props }) => {
                 <LinkIcon 
                     key={link.label}
                     index={index}
-                    // color={iconColor}
+                    color={iconColor}
                     onHoverColor={hoverColor}
                     {...link}
                 />

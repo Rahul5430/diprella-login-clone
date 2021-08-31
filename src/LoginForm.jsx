@@ -1,13 +1,14 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { Button, Heading, Text, Stack, useColorModeValue, useToast } from "@chakra-ui/react";
+import { Button, Heading, Image, Text, Stack, useColorModeValue, useToast } from "@chakra-ui/react";
+
+import line from './Assets/logo_line.svg';
 import Login from "./Components/Form";
 import LinkIconBar from "./Components/LinkIconBar";
-
 import links from "./Data/footerLinks";
 import { colors } from './Theme';
 
-const SignUp = ({ bg }) => {
+const SignUp = ({ bg, textColor }) => {
     const toast = useToast();
 
     return (
@@ -39,7 +40,7 @@ const SignUp = ({ bg }) => {
                 </Heading>
                 <Text
                     maxW="100%"
-                    color="#555a59"
+                    color={textColor}
                     style={{ fontFamily: '"GothamPro", serif', marginBottom: '16px' }}
                     fontSize="1.125rem"
                     textAlign="center"
@@ -49,6 +50,32 @@ const SignUp = ({ bg }) => {
                     Sign up using social networks
                 </Text>
                 <LinkIconBar links={links} />
+                <Stack
+                    background="url('/diprella-login-clone/static/media/logo_line.dea98084.svg') center center repeat-x"
+                    maxWidth="460px"
+                    width="100%"
+                    marginBottom="8px !important"
+                    alignItems="center"
+                    justifyContent="center"
+                >
+                    <Text
+                        as="div"
+                        bg={bg}
+                        // maxW="100%"
+                        color={textColor}
+                        style={{ fontFamily: '"GothamPro", serif' }}
+                        fontSize="0.6875rem"
+                        textAlign="center"
+                        letterSpacing={0}
+                        padding="0 8px"
+                        margin="0 auto"
+                        width="33px"
+                        // wordBreak="keep-all"
+                        whiteSpace="nowrap"
+                    >
+                        OR
+                    </Text>
+                </Stack>
                 <Formik
                     initialValues={{ 
                         email: '',
@@ -126,7 +153,7 @@ const SignUp = ({ bg }) => {
     );
 };
 
-const SignIn = ({ bg }) => {
+const SignIn = ({ bg, textColor }) => {
     return (
         <Stack
             className="form-container sign-in-container"
@@ -156,7 +183,7 @@ const SignIn = ({ bg }) => {
                 </Heading>
                 <Text
                     maxW="100%"
-                    color="#555a59"
+                    color={textColor}
                     style={{ fontFamily: '"GothamPro", serif', marginBottom: '16px' }}
                     fontSize="1.125rem"
                     textAlign="center"
@@ -166,6 +193,32 @@ const SignIn = ({ bg }) => {
                     Login using social networks
                 </Text>
                 <LinkIconBar links={links} />
+                <Stack
+                    background="url('/diprella-login-clone/static/media/logo_line.dea98084.svg') center center repeat-x"
+                    maxWidth="460px"
+                    width="100%"
+                    marginBottom="8px !important"
+                    alignItems="center"
+                    justifyContent="center"
+                >
+                    <Text
+                        as="div"
+                        bg={bg}
+                        // maxW="100%"
+                        color={textColor}
+                        style={{ fontFamily: '"GothamPro", serif' }}
+                        fontSize="0.6875rem"
+                        textAlign="center"
+                        letterSpacing={0}
+                        padding="0 8px"
+                        margin="0 auto"
+                        width="33px"
+                        // wordBreak="keep-all"
+                        whiteSpace="nowrap"
+                    >
+                        OR
+                    </Text>
+                </Stack>
                 <Login />
             </Stack>
         </Stack>
@@ -347,6 +400,7 @@ const Overlay = () => {
 
 const LoginForm = () => {
     const bg = useColorModeValue(colors.bg.light, colors.bg.dark);
+    const textColor = useColorModeValue('#555a59', colors.secondary.dark);
 
     return (
         <Stack
@@ -364,8 +418,8 @@ const LoginForm = () => {
             width="100vw"
             height="100vh"
         >
-            <SignUp bg={bg} />
-            <SignIn bg={bg} />
+            <SignUp bg={bg} textColor={textColor} />
+            <SignIn bg={bg} textColor={textColor} />
             <Overlay />
         </Stack>
     );

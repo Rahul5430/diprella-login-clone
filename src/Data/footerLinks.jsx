@@ -3,7 +3,7 @@ const links = [
         label: 'Facebook',
         icon: 'facebook',
         href: '#',
-        color: '#47546D',
+        // color: '#47546D',
     },
     {
         label: 'Google+',
@@ -15,7 +15,7 @@ const links = [
         label: 'LinkedIn',
         icon: 'linkedin',
         href: '#',
-        color: '#47546D',
+        // color: '#47546D',
     },
 ];
 

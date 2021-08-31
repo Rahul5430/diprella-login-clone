@@ -48,6 +48,10 @@ input {
   padding: 0 16px !important;
 }
 
+input::placeholder {
+  color: #88908e !important;
+}
+
 fieldset {
   border-radius: 25px;
   width: auto;
