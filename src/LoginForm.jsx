@@ -1,4 +1,5 @@
-import { Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import * as Yup from 'yup';
 import { Button, Heading, Text, Stack, useColorModeValue } from "@chakra-ui/react";
 import Login from "./Components/Form";
 import LinkIconBar from "./Components/LinkIconBar";
@@ -46,45 +47,71 @@ const SignUp = ({ bg }) => {
                     Sign up using social networks
                 </Text>
                 <LinkIconBar links={links} />
-                <Formik>
-                    <Form
-                        style={{ alignItems: "center" }}
-                        
-                    >
-                        <Stack></Stack>
-                        <Stack as='fieldset'>
-                            <Stack as='fieldset'>
-                                <Field type="text" placeholder="Name" />
-                            </Stack>
-                            <Stack as='fieldset'>
-                                <Field type="text" placeholder="Surname" />
-                            </Stack>
-                            <Stack as='fieldset'>
-                                <Field type="email" placeholder="Email" />
-                            </Stack>
-                            <Stack as='fieldset'>
-                                <Field type="password" placeholder="Password" />
-                            </Stack>
-                        </Stack>
-                        <Button
-                            w={235}
-                            h={54}
-                            backgroundColor="#28b498"
-                            borderRadius={30}
-                            outline={0}
-                            border="none"
-                            justifyContent="center"
-                            color="#fff"
-                            alignItems="center"
-                            fontFamily="'GothamPro Medium', serif"
-                            fontSize="0.875rem"
-                            lineHeight={16}
-                            textAlign="center"
-                            margin="32px 0"
+                <Formik
+                    initialValues={{ 
+                        email: '',
+                        password: '',
+                    }}
+                    validationSchema={Yup.object().shape({
+                        name: Yup.string()
+                            .required('Name is required'),
+                        surname: Yup.string()
+                            .required('Surname is required'),
+                        email: Yup.string()
+                            .email('Email is invalid')
+                            .required('Email is required'),
+                        password: Yup.string()
+                            .min(8, 'Password must be at least 8 characters')
+                            .required('Password is required')
+                    })}
+                    onSubmit={fields => {
+                        alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
+                    }}
+                >
+                    {({ errors, status, touched }) => (
+                        <Form
+                            style={{ alignItems: "center" }}
                         >
-                            Sign Up
-                        </Button>
-                    </Form>
+                            <Stack></Stack>
+                            <Stack as='fieldset'>
+                                <Stack as='fieldset'>
+                                    <Field type="text" name="name" placeholder="Name" className={'form-control' + (errors.name && touched.name ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="name" component="div" className="invalid-feedback" />
+                                </Stack>
+                                <Stack as='fieldset'>
+                                    <Field type="text" name="surname" placeholder="Surname" className={'form-control' + (errors.surname && touched.surname ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="surname" component="div" className="invalid-feedback" />
+                                </Stack>
+                                <Stack as='fieldset'>
+                                    <Field type="text" name="email" placeholder="Email" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="email" component="div" className="invalid-feedback" />
+                                </Stack>
+                                <Stack as='fieldset'>
+                                    <Field type="password" name="password" placeholder="Password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="password" component="div" className="invalid-feedback" />
+                                </Stack>
+                            </Stack>
+                            <Button
+                                type="submit"
+                                w={235}
+                                h={54}
+                                backgroundColor="#28b498"
+                                borderRadius={30}
+                                outline={0}
+                                border="none"
+                                justifyContent="center"
+                                color="#fff"
+                                alignItems="center"
+                                fontFamily="'GothamPro Medium', serif"
+                                fontSize="0.875rem"
+                                lineHeight={16}
+                                textAlign="center"
+                                margin="32px 0"
+                            >
+                                Sign Up
+                            </Button>
+                        </Form>
+                    )}
                 </Formik>
             </Stack>
         </Stack>
