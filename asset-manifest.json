@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/diprella-login-clone/static/css/main.8302da7c.chunk.css",
-    "main.js": "/diprella-login-clone/static/js/main.164d120b.chunk.js",
-    "main.js.map": "/diprella-login-clone/static/js/main.164d120b.chunk.js.map",
+    "main.js": "/diprella-login-clone/static/js/main.ca62ccc7.chunk.js",
+    "main.js.map": "/diprella-login-clone/static/js/main.ca62ccc7.chunk.js.map",
     "runtime-main.js": "/diprella-login-clone/static/js/runtime-main.f19d078a.js",
     "runtime-main.js.map": "/diprella-login-clone/static/js/runtime-main.f19d078a.js.map",
-    "static/js/2.a08e95a0.chunk.js": "/diprella-login-clone/static/js/2.a08e95a0.chunk.js",
-    "static/js/2.a08e95a0.chunk.js.map": "/diprella-login-clone/static/js/2.a08e95a0.chunk.js.map",
+    "static/js/2.61c3e091.chunk.js": "/diprella-login-clone/static/js/2.61c3e091.chunk.js",
+    "static/js/2.61c3e091.chunk.js.map": "/diprella-login-clone/static/js/2.61c3e091.chunk.js.map",
     "index.html": "/diprella-login-clone/index.html",
     "static/css/main.8302da7c.chunk.css.map": "/diprella-login-clone/static/css/main.8302da7c.chunk.css.map",
-    "static/js/2.a08e95a0.chunk.js.LICENSE.txt": "/diprella-login-clone/static/js/2.a08e95a0.chunk.js.LICENSE.txt",
+    "static/js/2.61c3e091.chunk.js.LICENSE.txt": "/diprella-login-clone/static/js/2.61c3e091.chunk.js.LICENSE.txt",
     "static/media/index.css": "/diprella-login-clone/static/media/GothamPro.08276ea9.woff",
     "static/media/diprella_logo.fee581e7.svg": "/diprella-login-clone/static/media/diprella_logo.fee581e7.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.f19d078a.js",
-    "static/js/2.a08e95a0.chunk.js",
+    "static/js/2.61c3e091.chunk.js",
     "static/css/main.8302da7c.chunk.css",
-    "static/js/main.164d120b.chunk.js"
+    "static/js/main.ca62ccc7.chunk.js"
   ]
 }
