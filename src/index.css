@@ -23,7 +23,6 @@ body {
   justify-content: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 div {
@@ -106,4 +105,16 @@ form {
 
 .container.right-panel-active .overlay-right {
 	transform: translateX(20%);
+}
+
+/* @media screen and (min-width: 30em) {
+  body {
+    height: auto;
+  }
+} */
+
+@media screen and (min-width: 48em) {
+  body {
+    height: 100vh;
+  }
 }
